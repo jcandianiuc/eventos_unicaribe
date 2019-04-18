@@ -7,27 +7,26 @@
 
 module.exports = {
   attributes: {
+    name: {
+      type: 'string',
+    },
+    lastName: {
+      type: 'string',
+      columnName: 'last_name',
+    },
     email: {
       type: 'string',
-      required: true,
       unique: true,
     },
-    passwordHashed: {
+    password: {
       type: 'string',
       required: true,
     },
     isAdmin: {
-      type: 'bool',
-    },
-    toJSON() {
-      let obj = this.toObject();
-      delete obj.passwordHashed;
-      return obj;
+      type: 'boolean',
     },
   },
-  beforeValidate(params, cb) {
-    if (params.password)
-      params.passwordHashed = await sails.helpers.hashPassword({password: params.password});
-    cb();
+  customToJSON() {
+    return {...this, password: undefined};
   },
 };
