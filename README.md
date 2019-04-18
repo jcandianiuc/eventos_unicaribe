@@ -1,3 +1,5 @@
-# eventos_unicaribe
+# Welcome to Eventos Unicaribe!
 
-#test
+### Please...
+
+- read the [contribution guidelines](CONTRIBUTING.md) for more information
