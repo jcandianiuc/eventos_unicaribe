@@ -9,5 +9,7 @@
  */
 
 module.exports.routes = {
-  'post /session': 'SessionController.create',
+  'get /': 'AppController.index',
+
+  'post /users': 'UserController.create',
 };
