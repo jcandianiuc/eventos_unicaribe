@@ -39,7 +39,12 @@ const login = async (req, res) => {
       login: moment().format(),
       key: sails.config.session.secret,
     });
-  } catch (err) {}
+    delete user.password;
+    res.success({ token, user });
+  } catch (er) {
+    const { err: e, status } = er;
+    res.handle({ err: e, status });
+  }
 };
 
 module.exports = { login };

@@ -12,4 +12,5 @@ module.exports.routes = {
   'get /': 'AppController.index',
 
   'post /users': 'UserController.create',
+  'post /login': 'SessionController.login',
 };
