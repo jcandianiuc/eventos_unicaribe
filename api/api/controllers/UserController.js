@@ -8,6 +8,7 @@
 const create = async (req, res) => {
   try {
     const { name, lastName, email, password, type } = req.allParams();
+    const password = sails.helpers.encryptPassword(passString);
   } catch (error) {}
 };
 
