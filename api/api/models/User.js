@@ -22,11 +22,9 @@ module.exports = {
       type: 'string',
       required: true,
     },
-    isAdmin: {
-      type: 'boolean',
+    type: {
+      type: 'string',
+      enum: ['student', 'admin', 'civil'],
     },
-  },
-  customToJSON() {
-    return {...this, password: undefined};
   },
 };
