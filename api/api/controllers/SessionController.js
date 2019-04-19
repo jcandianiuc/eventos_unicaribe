@@ -24,6 +24,21 @@ const login = async (req, res) => {
       raw: password,
       encrypted: user.password,
     });
+    if (!match) {
+      const matchErr = {
+        err: {
+          message: 'Values do not match',
+        },
+        status: 501,
+      };
+      throw matchErr;
+    }
+    const token = sails.helpers.generateToken.with({
+      id: user.id,
+      email: user.email,
+      login: moment().format(),
+      key: sails.config.session.secret,
+    });
   } catch (err) {}
 };
 
