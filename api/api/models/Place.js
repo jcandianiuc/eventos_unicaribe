@@ -16,6 +16,7 @@ module.exports = {
     status: {
       type: 'string',
       enum: ['enable', 'disable'],
+      defatultsTo: 'disabled',
     },
   },
 };
