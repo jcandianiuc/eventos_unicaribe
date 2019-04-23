@@ -13,4 +13,9 @@ module.exports.routes = {
 
   'post /users': 'UserController.create',
   'post /login': 'SessionController.login',
+
+  'get /place': 'PlaceController.index',
+  'get /place/:id': 'PlaceController.show',
+  'post /place': 'PlaceController.create',
+  'update /place/:id': 'PlaceController.update',
 };

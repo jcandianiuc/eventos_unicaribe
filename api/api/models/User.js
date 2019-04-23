@@ -26,5 +26,9 @@ module.exports = {
       type: 'string',
       enum: ['student', 'admin', 'civil'],
     },
+    Events: {
+      collection: 'Event',
+      via: 'Attendants',
+    },
   },
 };

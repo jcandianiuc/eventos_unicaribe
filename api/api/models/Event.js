@@ -10,6 +10,9 @@ module.exports = {
     name: {
       type: 'string',
     },
+    description: {
+      type: 'text',
+    },
     date: {
       type: 'datetime',
     },
@@ -30,18 +33,11 @@ module.exports = {
       model: 'Place',
     },
     Attendants: {
-      collection: 'Assistant',
+      collection: 'User',
       via: 'Events',
     },
     Talker: {
       model: 'Talker',
     },
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
   },
 };
