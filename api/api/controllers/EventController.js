@@ -124,9 +124,20 @@ const update = async (req, res) => {
   }
 };
 
+const eventsByUser = async (req, res) => {
+  try {
+    const user = req.param('user');
+    const events = await Event.find({ Attendants: [user] });
+    res.success(event);
+  } catch (err) {
+    res.negotiate(err);
+  }
+};
+
 module.exports = {
   index,
   show,
   create,
   update,
+  eventsByUser,
 };

@@ -22,7 +22,8 @@ module.exports.routes = {
   'update /place/:id': 'PlaceController.update',
 
   'get /event': 'EventController.index',
-  'get /event/:id': 'PlaceController.show',
+  'get /event/:id': 'EventController.show',
+  'get /event/:user/user': 'EventController.eventsByUser',
   'post /event': 'EventController.create',
   'update /event/:id': 'EventController.update',
 };
