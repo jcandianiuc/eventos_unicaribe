@@ -11,7 +11,7 @@
 module.exports.routes = {
   'get /': 'AppController.index',
 
-  'post /users': 'UserController.create',
+  'post /user': 'UserController.create',
   'post /login': 'SessionController.login',
 
   'get /place': 'PlaceController.index',
@@ -23,4 +23,5 @@ module.exports.routes = {
   'get /event/:id': 'PlaceController.show',
   'post /event': 'EventController.create',
   'update /event/:id': 'EventController.update',
+  'update /event/:id/user/:attendant': 'PlaceController.addAttendant',
 };

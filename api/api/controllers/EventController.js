@@ -124,9 +124,23 @@ const update = async (req, res) => {
   }
 };
 
+const addAttendant = async (req, res) => {
+  try {
+    const id = req.param('id');
+    const attendant = req.param('attendant');
+    const updatedEvent = await Event.addToCollection(id, 'Attendants').members([
+      attendant,
+    ]);
+    res.success(updatedEvent);
+  } catch (err) {
+    res.negotiate(err);
+  }
+};
+
 module.exports = {
   index,
   show,
   create,
   update,
+  addAttendant,
 };
