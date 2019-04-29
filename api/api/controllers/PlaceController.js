@@ -26,8 +26,8 @@ const show = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const { name, description } = req.allParams();
-    const place = await Place.create({ name, description });
+    const { name, description, capacitance } = req.allParams();
+    const place = await Place.create({ name, description, capacitance });
     res.created(place);
   } catch (err) {
     res.negotiate(err);
@@ -38,12 +38,11 @@ const update = async (req, res) => {
   try {
     const { id, name, description, status } = req.allParams();
     const params = {
-      id,
       name,
       description,
       status,
     };
-    let parLen = 4;
+    let parLen = 3;
 
     if (!description) {
       delete params.description;

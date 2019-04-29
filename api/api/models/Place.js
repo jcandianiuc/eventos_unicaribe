@@ -13,6 +13,9 @@ module.exports = {
     description: {
       type: 'text',
     },
+    capacitance: {
+      type: 'ineteger',
+    },
     status: {
       type: 'string',
       enum: ['enable', 'disable'],

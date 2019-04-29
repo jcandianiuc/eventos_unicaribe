@@ -12,7 +12,6 @@ module.exports = {
     },
     lastName: {
       type: 'string',
-      columnName: 'last_name',
     },
     email: {
       type: 'string',
@@ -29,6 +28,9 @@ module.exports = {
     Events: {
       collection: 'Event',
       via: 'Attendants',
+    },
+    ProfilePicture: {
+      model: 'ProfileFile',
     },
   },
 };
