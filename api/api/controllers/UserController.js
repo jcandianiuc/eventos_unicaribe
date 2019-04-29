@@ -30,6 +30,21 @@ const create = async (req, res) => {
   }
 };
 
+const addEvent = async (req, res) => {
+  try {
+    const id = req.param('id');
+    const event = req.param('event');
+    const updatedUser = await User.addToCollection(id, 'Events').members([
+      event,
+    ]);
+    await Event.addToCollection(event, 'Attendants').members([id]);
+    res.success(updatedUser);
+  } catch (err) {
+    res.negotiate(err);
+  }
+};
+
 module.exports = {
   create,
+  addEvent,
 };
