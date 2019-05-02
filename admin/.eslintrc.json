@@ -5,7 +5,7 @@
   },
   "parser": "babel-eslint",
 
-  "extends": ["eslint:recommended", "airbnb", "prettier"],
+  "extends": ["eslint:recommended", "airbnb", "prettier", "prettier/react"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
