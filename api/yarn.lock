@@ -218,6 +218,10 @@ async@0.2.10, async@0.2.x, async@~0.2.9:
   version "0.2.10"
   resolved "https://registry.yarnpkg.com/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
 
+async@1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+
 async@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/async/-/async-2.0.1.tgz#b709cc0280a9c36f09f4536be823c838a9049e25"
@@ -229,6 +233,10 @@ async@2.5.0:
   resolved "https://registry.yarnpkg.com/async/-/async-2.5.0.tgz#843190fd6b7357a0b9e1c956edddd5ec8462b54d"
   dependencies:
     lodash "^4.14.0"
+
+async@~0.9.0:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
 
 babel-code-frame@^6.22.0:
   version "6.26.0"
@@ -2678,6 +2686,16 @@ sails-hook-sockets@^1.5.5:
     socket.io "2.0.3"
     uid2 "0.0.3"
 
+sails-memory@^0.10.7:
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/sails-memory/-/sails-memory-0.10.7.tgz#1e0beccfefe0995766c6e575f14597fe87eb42de"
+  dependencies:
+    async "1.5.2"
+    lodash "3.10.1"
+    waterline-criteria "1.0.1"
+    waterline-cursor "0.0.6"
+    waterline-errors "0.10.1"
+
 sails-mongo@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sails-mongo/-/sails-mongo-1.0.1.tgz#ce005749b629439654e2b027dea4d30e0c69abc6"
@@ -3231,6 +3249,23 @@ walker@1.0.7:
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
   dependencies:
     makeerror "1.0.x"
+
+waterline-criteria@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/waterline-criteria/-/waterline-criteria-1.0.1.tgz#8877057ec7d6472100017a3a57fcc94b62a1fda9"
+  dependencies:
+    lodash "3.10.1"
+
+waterline-cursor@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/waterline-cursor/-/waterline-cursor-0.0.6.tgz#7750eea88b88f800996d1153047dbc850f452f4f"
+  dependencies:
+    async "~0.9.0"
+    lodash "~2.4.1"
+
+waterline-errors@0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/waterline-errors/-/waterline-errors-0.10.1.tgz#ee63632aadde993271b7514b7ca98d9fd5b86a2e"
 
 waterline-schema@^1.0.0-20:
   version "1.0.0"
