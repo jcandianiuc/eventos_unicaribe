@@ -8,7 +8,7 @@ import Users from "./containers/Users";
 const Routes = ({ location }) => (
   <Switch location={location}>
     <Route exact path="/users" component={Users} />
-    <Route exact path="/crear" component={Create} />
+    <Route exact path="/event/create" component={Create} />
     <Route exact path="/" component={Home} />
     <Redirect to="/" />
   </Switch>

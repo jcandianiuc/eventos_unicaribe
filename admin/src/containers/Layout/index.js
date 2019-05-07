@@ -34,35 +34,19 @@ class Layout extends Component {
     this.renderUserLinks = this.renderUserLinks.bind(this);
   }
 
-  renderUserLinks() {
-    const { userType } = this.props;
-    const userLinks = [];
-    if (userType === "encargado" || userType === "admin") {
-      links.encargado.reduce((acc, item) => {
-        acc.push(
-          <li className="nav-item" key={`encargado-link-${item.url}`}>
-            <Link className="nav-link" to={item.url}>
-              <LinkSpan>{item.display}</LinkSpan>
-            </Link>
-          </li>
-        );
-        return acc;
-      }, userLinks);
-    }
-    if (userType === "admin") {
-      links.admin.reduce((acc, item) => {
-        acc.push(
-          <li className="nav-item" key={`admin-link-${item.url}`}>
-            <Link className="nav-link" to={item.url}>
-              <LinkSpan>{item.display}</LinkSpan>
-            </Link>
-          </li>
-        );
-        return acc;
-      }, userLinks);
-    }
-
-    return userLinks;
+  renderLinks() {
+    const linksToRender = [];
+    links.recude((acc, link) => {
+      acc.push(
+        <li className="nav-item" key={`link-${link.url}`}>
+          <Link className="nav-link" to={link.url}>
+            <LinkSpan>{link.display}</LinkSpan>
+          </Link>
+        </li>
+      );
+      return acc;
+    }, linksToRender);
+    return linksToRender;
   }
 
   render() {

@@ -9,7 +9,7 @@ export default function(state = initialState, { type, payload }) {
   switch (type) {
     case filtros.setUsers.type:
       return { ...state, users: payload };
-    case filtros.setAutores.type:
+    case filtros.setTalkers.type:
       return { ...state, talkers: payload };
     default:
       return state;

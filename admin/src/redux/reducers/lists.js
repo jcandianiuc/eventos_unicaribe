@@ -13,11 +13,10 @@ export default function(state = initialState, { type, payload }) {
       return { ...state, users: [...payload] };
     case lists.setPlaces.type:
       return { ...state, places: [...payload] };
-    case lists.setNotificaciones.type:
-      return { ...state, notificaciones: [...payload] };
     case lists.setEvents.type:
       return { ...state, events: [...payload] };
-
+    case lists.setNotificaciones.type:
+      return { ...state, notificaciones: [...payload] };
     default:
       return state;
   }
