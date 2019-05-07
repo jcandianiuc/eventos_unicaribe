@@ -2,18 +2,7 @@ import { takeLatest, put, call } from "redux-saga/effects";
 import { listsActions } from "../actions";
 import api from "../../services/api";
 
-export function* getAsesoresSaga({ payload }) {
-  const params = {
-    tipo: [1, 3],
-    name: payload,
-    apellidos: payload,
-    email: payload
-  };
-  const { data: users } = yield call(api.users.get, params);
-  yield put(listsActions.setAsesores(users));
-}
-
-export function* getAutoresSaga({ payload }) {
+export function* getTalkersSaga({ payload }) {
   const params = {
     tipo: [1, 2],
     name: payload,
@@ -21,7 +10,7 @@ export function* getAutoresSaga({ payload }) {
     email: payload
   };
   const { data: users } = yield call(api.users.get, params);
-  yield put(listsActions.setAutores(users));
+  yield put(listsActions.setTalkers(users));
 }
 
 export function* getUsersSaga({ payload }) {
