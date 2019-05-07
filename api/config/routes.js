@@ -26,4 +26,9 @@ module.exports.routes = {
   'get /event/:user/user': 'EventController.eventsByUser',
   'post /event': 'EventController.create',
   'update /event/:id': 'EventController.update',
+
+  'get /type': 'TypeController.index',
+  'get /type/:id': 'TypeController.show',
+  'post /type': 'TypeController.create',
+  'update /type/:id': 'TypeController.update',
 };

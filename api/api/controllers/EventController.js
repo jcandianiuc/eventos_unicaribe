@@ -7,6 +7,7 @@
 
 const index = async (req, res) => {
   try {
+    // avisar con 3 horas de anticipacion
     const events = await Event.find({ startTime: { '>=': new Date() } });
     res.success(events);
   } catch (err) {
