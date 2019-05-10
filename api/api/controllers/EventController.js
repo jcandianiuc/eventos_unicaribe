@@ -4,15 +4,16 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
+const moment = require("moment");
 
 const index = async (req, res) => {
   try {
     //AVISAR CON 3 HORAS DE ANTICIPACION
-    const { sort, date } = req.allParams();
-    const events = await Event.find({
-      where: { date: { "=": date } },
-      sort: `date ${sort}`
-    });
+    const {
+      sort = "ASC",
+      date = moment(new Date()).format("YYYY-MM-DD")
+    } = req.allParams();
+    const events = await Event.find({ date });
     res.success(events);
   } catch (err) {
     res.negotiate(err);

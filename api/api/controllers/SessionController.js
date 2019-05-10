@@ -9,11 +9,8 @@ const moment = require("moment");
 
 const login = async (req, res) => {
   try {
-    console.log("HEEEEEREEEE");
-
     const { email, password } = req.allParams();
     const user = await User.findOne({ email });
-    console.log("USER FOUND: ", user);
 
     if (!user) {
       const err = {
@@ -24,16 +21,13 @@ const login = async (req, res) => {
       };
       throw err;
     }
-    console.log("PASSWORDS: ", { password, passwordUser: user.password });
 
     const match = sails.helpers.compareHash.with({
       raw: password,
       encrypted: user.password
     });
-    console.log("DAFAQ: ", match);
 
     if (!match) {
-      console.log("HERE?");
       const matchErr = {
         err: {
           message: "Values do not match"
@@ -42,7 +36,6 @@ const login = async (req, res) => {
       };
       throw matchErr;
     }
-    console.log("HERE!");
 
     const token = sails.helpers.generateToken.with({
       id: user.id,
@@ -50,7 +43,6 @@ const login = async (req, res) => {
       login: moment().format(),
       key: sails.config.session.secret
     });
-    console.log("TOKEN FOUND", token);
 
     delete user.password;
     res.success({ token, user });

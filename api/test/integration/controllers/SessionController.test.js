@@ -6,26 +6,26 @@ describe("SessionController", () => {
     await User.destroy({});
     email = "user1@email.com";
     password = "user.name.1";
-    await User.create({
-      password,
-      email,
+    const url = "/user";
+    const params = {
       name: "user.name.1",
       lastName: "user.lastName.1",
-      type: "student"
-    });
-    const users = await User.find();
-    console.log("users: ", users);
+      password,
+      email,
+      type: "admin"
+    };
+    await app.post(url).send(params);
   });
 
-  /*describe('login', () => {
-    it('should return a token after a valid login', async () => {
-      const url = '/login';
+  describe("login", () => {
+    it("should return a token after a valid login", async () => {
+      const url = "/login";
       const { body } = await app.post(url).send({
         email,
-        password,
+        password
       });
 
-      expect(body).to.have.property('token');
+      expect(body).to.have.property("token");
     });
-  });*/
+  });
 });

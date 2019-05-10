@@ -13,7 +13,6 @@ describe("UserController", () => {
         type: "admin"
       };
       const { body } = await app.post(url).send(params);
-      console.log("body: ", body);
 
       expect(body).to.have.property("token");
     });
