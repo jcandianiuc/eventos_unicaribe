@@ -5,6 +5,8 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+const moment = require("moment");
+
 const create = async (req, res) => {
   try {
     const {
@@ -14,16 +16,16 @@ const create = async (req, res) => {
       password: passString,
       type
     } = req.allParams();
-    const password = sails.helpers.encryptPassword(passString);
-    console.log("HEEEEEREEEE");
+    const password = sails.helpers.encryptPassword.with({
+      password: passString
+    });
     const { id } = await User.create({
       name,
       lastName,
       type,
       email,
       password
-    });
-    console.log("id: ", id);
+    }).fetch();
     const user = await User.findOne({ id });
     const token = sails.helpers.generateToken.with({
       id: user.id,

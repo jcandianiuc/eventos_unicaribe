@@ -9,7 +9,7 @@ describe("UserController", () => {
         name: "user.name.1",
         lastName: "user.lastName.1",
         password: "user.password.1",
-        email: "user.email.1",
+        email: "user@mail.com",
         type: "admin"
       };
       const { body } = await app.post(url).send(params);
