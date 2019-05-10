@@ -1,5 +1,5 @@
 /**
- * Place.js
+ * Talker.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,14 +12,6 @@ module.exports = {
     },
     description: {
       type: "text"
-    },
-    capacitance: {
-      type: "integer"
-    },
-    status: {
-      type: "string",
-      enum: ["enable", "disable"],
-      defaultsTo: "disabled"
     }
   }
 };

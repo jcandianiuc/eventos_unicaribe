@@ -14,13 +14,16 @@ module.exports = {
       type: "text"
     },
     date: {
-      type: "datetime"
+      type: "string",
+      columnType: "datetime"
     },
     startTime: {
-      type: "datetime"
+      type: "string",
+      columnType: "datetime"
     },
     endTime: {
-      type: "datetime"
+      type: "string",
+      columnType: "datetime"
     },
     cost: {
       type: "float"

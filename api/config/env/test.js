@@ -43,7 +43,7 @@ module.exports = {
      *    (See https://sailsjs.com/config/datastores for help.)                 *
      *                                                                          *
      ***************************************************************************/
-    test: {
+    default: {
       adapter: "sails-mongo",
       host: "localhost",
       port: 27017,

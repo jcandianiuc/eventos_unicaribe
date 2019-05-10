@@ -30,5 +30,10 @@ module.exports.routes = {
   "get /type": "TypeController.index",
   "get /type/:id": "TypeController.show",
   "post /type": "TypeController.create",
-  "update /type/:id": "TypeController.update"
+  "update /type/:id": "TypeController.update",
+
+  "get /talker": "TalkerController.index",
+  "get /talker/:id": "TalkerController.show",
+  "post /talker": "TalkerController.create",
+  "update /talker/:id": "TalkerController.update"
 };
