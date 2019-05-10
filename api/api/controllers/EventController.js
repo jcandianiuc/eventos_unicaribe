@@ -11,9 +11,13 @@ const index = async (req, res) => {
     //AVISAR CON 3 HORAS DE ANTICIPACION
     const {
       sort = "ASC",
-      date = moment(new Date()).format("YYYY-MM-DD")
+      date = moment(new Date()).format("YYYY-MM-DD"),
+      status = "incoming"
     } = req.allParams();
-    const events = await Event.find({ date });
+    const events = await Event.find({
+      where: { date, status },
+      sort: `startTime ${sort}`
+    });
     res.success(events);
   } catch (err) {
     res.negotiate(err);

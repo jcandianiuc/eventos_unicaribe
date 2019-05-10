@@ -28,10 +28,14 @@ describe("EventController", () => {
             year: 2019,
             month: 5,
             date: 10
-            // hour: 13,
-            // minute: 30,
           })
           .format("YYYY-MM-DD"),
+        startTime: moment()
+          .set({ hour: 13, minute: 30 })
+          .format("HH:mm"),
+        endTime: moment()
+          .set({ hour: 14, minute: 30 })
+          .format("HH:mm"),
         cost: 0,
         main: false,
         Type: type.id,
@@ -46,12 +50,16 @@ describe("EventController", () => {
             year: 2019,
             month: 4,
             date: 10
-            // hour: 16,
-            // minute: 30,
           })
           .format("YYYY-MM-DD"),
+        startTime: moment()
+          .set({ hour: 16, minute: 30 })
+          .format("HH:mm"),
+        endTime: moment()
+          .set({ hour: 19, minute: 30 })
+          .format("HH:mm"),
         cost: 100,
-        main: false,
+        main: true,
         Type: type.id,
         Place: place.id,
         Talker: talker.id
@@ -64,11 +72,38 @@ describe("EventController", () => {
             year: 2019,
             month: 4,
             date: 10
-            // hour: 19,
-            // minute: 00,
           })
           .format("YYYY-MM-DD"),
+        startTime: moment()
+          .set({ hour: 19, minute: 00 })
+          .format("HH:mm"),
+        endTime: moment()
+          .set({ hour: 19, minute: 30 })
+          .format("HH:mm"),
         cost: 0,
+        main: false,
+        Type: type.id,
+        Place: place.id,
+        Talker: talker.id
+      }).fetch(),
+      await Event.create({
+        name: "event.name.4",
+        description: "event.description.4",
+        date: moment()
+          .set({
+            year: 2019,
+            month: 4,
+            date: 10
+          })
+          .format("YYYY-MM-DD"),
+        startTime: moment()
+          .set({ hour: 14, minute: 00 })
+          .format("HH:mm"),
+        endTime: moment()
+          .set({ hour: 15, minute: 30 })
+          .format("HH:mm"),
+        cost: 0,
+        status: "finished",
         main: false,
         Type: type.id,
         Place: place.id,
@@ -78,13 +113,9 @@ describe("EventController", () => {
   });
 
   describe("index", () => {
-    it("should return events of the day", async () => {
-      const eventsCreated = await Event.find();
-      console.log("eventsCreated: ", eventsCreated);
-
+    it("should return incoming events of the day", async () => {
       const url = "/event";
       const { body } = await app.get(url);
-
       expect(body.length).to.be.equal(2);
     });
   });
