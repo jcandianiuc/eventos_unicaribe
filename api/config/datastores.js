@@ -33,5 +33,11 @@ module.exports.datastores = {
   default: {
     adapter: "sails-mongo",
     url: process.env.MONGOBD_URL
+  },
+  test: {
+    adapter: "sails-mongo",
+    host: "localhost",
+    port: 27017,
+    database: process.env.LOCAL_MONGO
   }
 };
