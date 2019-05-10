@@ -8,36 +8,40 @@
 module.exports = {
   attributes: {
     name: {
-      type: 'string',
+      type: "string"
     },
     description: {
-      type: 'text',
+      type: "text"
     },
     date: {
-      type: 'datetime',
+      type: "datetime"
     },
     startTime: {
-      type: 'datetime',
+      type: "datetime"
     },
     endTime: {
-      type: 'datetime',
+      type: "datetime"
     },
     cost: {
-      type: 'float',
+      type: "float"
     },
     type: {
-      type: 'string',
-      enum: ['conference', 'play'],
+      type: "string",
+      enum: ["conference", "play"]
+    },
+    status: {
+      type: "string",
+      enum: ["finished", "comming", "in progress"]
     },
     Place: {
-      model: 'Place',
+      model: "Place"
     },
     Attendants: {
-      collection: 'User',
-      via: 'Events',
+      collection: "User",
+      via: "Events"
     },
     Talker: {
-      model: 'Talker',
-    },
-  },
+      model: "Talker"
+    }
+  }
 };

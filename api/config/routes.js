@@ -9,21 +9,21 @@
  */
 
 module.exports.routes = {
-  'get /': 'AppController.index',
+  "get /": "AppController.index",
 
-  'post /user': 'UserController.create',
-  'update /user/:id/event/:event': 'UserController.addEvent',
+  "post /user": "UserController.create",
+  "update /user/:id/event/:event": "UserController.addEvent",
 
-  'post /login': 'SessionController.login',
+  "post /login": "SessionController.login",
 
-  'get /place': 'PlaceController.index',
-  'get /place/:id': 'PlaceController.show',
-  'post /place': 'PlaceController.create',
-  'update /place/:id': 'PlaceController.update',
+  "get /place": "PlaceController.index",
+  "get /place/:id": "PlaceController.show",
+  "post /place": "PlaceController.create",
+  "update /place/:id": "PlaceController.update",
 
-  'get /event': 'EventController.index',
-  'get /event/:id': 'EventController.show',
-  'get /event/:user/user': 'EventController.eventsByUser',
-  'post /event': 'EventController.create',
-  'update /event/:id': 'EventController.update',
+  "get /event/:date": "EventController.index",
+  "get /event/:id": "EventController.show",
+  "get /event/:user/user": "EventController.eventsByUser",
+  "post /event": "EventController.create",
+  "update /event/:id": "EventController.update"
 };

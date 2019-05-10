@@ -7,7 +7,12 @@
 
 const index = async (req, res) => {
   try {
-    const events = await Event.find({ startTime: { '>=': new Date() } });
+    const { date = new Date(), sort, limit = 10 } = req.allParams();
+    const events = await Event.find({
+      where: { date: { "=": date } },
+      sort,
+      limit
+    });
     res.success(events);
   } catch (err) {
     res.negotiate(err);
@@ -16,7 +21,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
   try {
-    const id = req.param('id');
+    const id = req.param("id");
     const event = await Event.findOne({ id });
     res.success(event);
   } catch (err) {
@@ -35,7 +40,7 @@ const create = async (req, res) => {
       cost,
       type,
       place: Place,
-      talker: Talker,
+      talker: Talker
     } = req.allParams();
     const event = await Event.create({
       name,
@@ -46,7 +51,7 @@ const create = async (req, res) => {
       cost,
       type,
       Place,
-      Talker,
+      Talker
     });
     res.created(event);
   } catch (err) {
@@ -66,7 +71,7 @@ const update = async (req, res) => {
       cost,
       type,
       place: Place,
-      talker: Talker,
+      talker: Talker
     } = req.allParams();
     const params = {
       name,
@@ -77,7 +82,7 @@ const update = async (req, res) => {
       cost,
       type,
       Place,
-      Talker,
+      Talker
     };
     let parLen = 9;
     if (!name) {
@@ -126,9 +131,9 @@ const update = async (req, res) => {
 
 const eventsByUser = async (req, res) => {
   try {
-    const user = req.param('user');
+    const user = req.param("user");
     const events = await Event.find({ Attendants: [user] });
-    res.success(event);
+    res.success(events);
   } catch (err) {
     res.negotiate(err);
   }
@@ -139,5 +144,5 @@ module.exports = {
   show,
   create,
   update,
-  eventsByUser,
+  eventsByUser
 };
