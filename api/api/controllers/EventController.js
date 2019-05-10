@@ -8,11 +8,10 @@
 const index = async (req, res) => {
   try {
     //AVISAR CON 3 HORAS DE ANTICIPACION
-    const { date = new Date(), sort, limit = 10 } = req.allParams();
+    const { sort, date } = req.allParams();
     const events = await Event.find({
       where: { date: { "=": date } },
-      sort,
-      limit
+      sort: `date ${sort}`
     });
     res.success(events);
   } catch (err) {
@@ -40,6 +39,7 @@ const create = async (req, res) => {
       endTime,
       cost,
       type,
+      main,
       place: Place,
       talker: Talker
     } = req.allParams();

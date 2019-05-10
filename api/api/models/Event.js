@@ -29,6 +29,9 @@ module.exports = {
       type: "string",
       enum: ["finished", "in progress", "coming"]
     },
+    main: {
+      type: "boolean"
+    },
     Type: {
       model: "Type"
     },

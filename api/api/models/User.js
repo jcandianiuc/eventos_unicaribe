@@ -8,29 +8,30 @@
 module.exports = {
   attributes: {
     name: {
-      type: 'string',
+      type: "string"
     },
     lastName: {
-      type: 'string',
+      type: "string"
     },
     email: {
-      type: 'string',
-      unique: true,
+      type: "string",
+      unique: true
     },
     password: {
-      type: 'string',
-      required: true,
+      type: "string",
+      required: true
     },
     type: {
-      type: 'string',
-      enum: ['student', 'admin', 'civil', 'talker'],
+      type: "string",
+      enum: ["student", "admin", "civil", "talker"]
     },
     Events: {
-      collection: 'Event',
-      via: 'Attendants',
+      collection: "Event",
+      via: "Attendants"
     },
-    ProfilePicture: {
-      model: 'ProfileFile',
-    },
-  },
+    Friends: {
+      collection: "Friend",
+      via: "User"
+    }
+  }
 };
