@@ -23,7 +23,7 @@ module.exports = {
     },
     type: {
       type: "string",
-      enum: ["student", "admin", "civil", "talker"]
+      enum: ["student", "admin", "civil"]
     },
     Events: {
       collection: "Event",

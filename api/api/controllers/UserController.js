@@ -15,13 +15,15 @@ const create = async (req, res) => {
       type
     } = req.allParams();
     const password = sails.helpers.encryptPassword(passString);
-    const { id } = await Usuarios.create({
+    console.log("HEEEEEREEEE");
+    const { id } = await User.create({
       name,
       lastName,
       type,
       email,
       password
     });
+    console.log("id: ", id);
     const user = await User.findOne({ id });
     const token = sails.helpers.generateToken.with({
       id: user.id,

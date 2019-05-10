@@ -44,7 +44,8 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     default: {
-      //url: process.env.MONGOBD_URL,
+      adapter: "sails-mongo",
+      url: process.env.MONGOBD_URL
     }
   },
 
