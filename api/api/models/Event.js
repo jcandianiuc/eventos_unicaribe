@@ -25,13 +25,12 @@ module.exports = {
     cost: {
       type: "float"
     },
-    type: {
-      type: "string",
-      enum: ["conference", "play"]
-    },
     status: {
       type: "string",
-      enum: ["finished", "comming", "in progress"]
+      enum: ["finished", "in progress", "coming"]
+    },
+    Type: {
+      model: "Type"
     },
     Place: {
       model: "Place"

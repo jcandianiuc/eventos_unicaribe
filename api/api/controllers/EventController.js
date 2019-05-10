@@ -7,6 +7,7 @@
 
 const index = async (req, res) => {
   try {
+    //AVISAR CON 3 HORAS DE ANTICIPACION
     const { date = new Date(), sort, limit = 10 } = req.allParams();
     const events = await Event.find({
       where: { date: { "=": date } },
