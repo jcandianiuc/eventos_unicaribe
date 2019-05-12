@@ -10,8 +10,8 @@ module.exports = {
     name: {
       type: "string"
     },
-    description: {
-      type: "text"
+    location: {
+      type: "string"
     },
     capacitance: {
       type: "integer"

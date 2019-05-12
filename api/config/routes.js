@@ -20,6 +20,7 @@ module.exports.routes = {
   "get /place/:id": "PlaceController.show",
   "post /place": "PlaceController.create",
   "put /place/:id": "PlaceController.update",
+  "delete /place/:id": "PlaceController.remove",
 
   "get /event": "EventController.index",
   "get /event/:id": "EventController.show",

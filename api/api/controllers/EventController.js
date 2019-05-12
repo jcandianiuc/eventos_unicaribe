@@ -43,7 +43,7 @@ const create = async (req, res) => {
       startTime,
       endTime,
       cost,
-      type,
+      type: Type,
       main,
       place: Place,
       talker: Talker
@@ -55,10 +55,11 @@ const create = async (req, res) => {
       startTime,
       endTime,
       cost,
-      type,
+      Type,
+      main,
       Place,
       Talker
-    });
+    }).fetch();
     res.created(event);
   } catch (err) {
     res.negotiate(err);

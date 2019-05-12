@@ -16,7 +16,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
   try {
-    const id = req.param('id');
+    const id = req.param("id");
     const place = await Place.findOne({ id });
     res.success(place);
   } catch (err) {
@@ -26,8 +26,13 @@ const show = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const { name, description, capacitance } = req.allParams();
-    const place = await Place.create({ name, description, capacitance });
+    const { name, location, capacitance, status } = req.allParams();
+    const place = await Place.create({
+      name,
+      location,
+      capacitance,
+      status
+    }).fetch();
     res.created(place);
   } catch (err) {
     res.negotiate(err);
@@ -36,16 +41,17 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const { id, name, description, status } = req.allParams();
+    const { id, name, location, status, capacitance } = req.allParams();
     const params = {
       name,
-      description,
+      location,
       status,
+      capacitance
     };
-    let parLen = 3;
+    let parLen = 4;
 
-    if (!description) {
-      delete params.description;
+    if (!location) {
+      delete params.location;
       parLen = parLen - 1;
     }
 
@@ -57,6 +63,10 @@ const update = async (req, res) => {
       delete params.name;
       parLen = parLen - 1;
     }
+    if (!capacitance) {
+      delete params.capacitance;
+      parLen = parLen - 1;
+    }
 
     parLen > 0 && (await Place.update({ id }).set({ ...params }));
     const updatedPlace = await Place.findOne({ id });
@@ -66,9 +76,19 @@ const update = async (req, res) => {
   }
 };
 
+const remove = async (req, res) => {
+  try {
+    const id = req.param("id");
+    await Place.destroy({ id });
+    res.success();
+  } catch (err) {
+    res.negotiate(err);
+  }
+};
 module.exports = {
   index,
   show,
   create,
   update,
+  remove
 };

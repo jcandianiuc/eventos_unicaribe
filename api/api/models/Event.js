@@ -31,7 +31,7 @@ module.exports = {
     status: {
       type: "string",
       enum: ["finished", "in progress", "incoming"],
-      defaultsTo: "coming"
+      defaultsTo: "incoming"
     },
     main: {
       type: "boolean"

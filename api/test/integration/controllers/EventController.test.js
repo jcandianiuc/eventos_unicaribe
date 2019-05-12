@@ -1,9 +1,10 @@
 const moment = require("moment");
-let events = null;
-let place = null;
-let type = null;
-let talker = null;
+
 describe("EventController", () => {
+  let place = null;
+  let type = null;
+  let talker = null;
+  let events = null;
   before(async () => {
     Type.destroy({});
     Place.destroy({});
@@ -45,14 +46,8 @@ describe("EventController", () => {
       await Event.create({
         name: "event.name.2",
         description: "event.description.2",
-        date: moment()
-          .set({
-            year: 2019,
-            month: 4,
-            date: 12
-          })
-          .format("YYYY-MM-DD"),
-        startTime: moment()
+        date: moment().format("YYYY-MM-DD"),
+        startTime: moment(new Date())
           .set({ hour: 16, minute: 30 })
           .format("HH:mm"),
         endTime: moment()
@@ -67,13 +62,7 @@ describe("EventController", () => {
       await Event.create({
         name: "event.name.3",
         description: "event.description.3",
-        date: moment()
-          .set({
-            year: 2019,
-            month: 4,
-            date: 12
-          })
-          .format("YYYY-MM-DD"),
+        date: moment(new Date()).format("YYYY-MM-DD"),
         startTime: moment()
           .set({ hour: 19, minute: 00 })
           .format("HH:mm"),
@@ -89,13 +78,7 @@ describe("EventController", () => {
       await Event.create({
         name: "event.name.4",
         description: "event.description.4",
-        date: moment()
-          .set({
-            year: 2019,
-            month: 4,
-            date: 12
-          })
-          .format("YYYY-MM-DD"),
+        date: moment(new Date()).format("YYYY-MM-DD"),
         startTime: moment()
           .set({ hour: 14, minute: 00 })
           .format("HH:mm"),

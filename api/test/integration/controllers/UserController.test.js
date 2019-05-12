@@ -79,8 +79,6 @@ describe("UserController", () => {
     it("should return add an event to a user", async () => {
       const url = `/user/${user.id}/event/${event.id}`;
       const { body, status } = await app.put(url);
-      console.log("body: ", body);
-
       expect(body.Events.length).to.be.equal(1);
       expect(status).to.be.equal(200);
     });

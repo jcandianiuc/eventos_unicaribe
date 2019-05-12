@@ -26,7 +26,7 @@ const show = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const type = await Type.create(req.allParams());
+    const type = await Type.create(req.allParams()).fetch();
     res.created(type);
   } catch (err) {
     res.badRequest(err);
