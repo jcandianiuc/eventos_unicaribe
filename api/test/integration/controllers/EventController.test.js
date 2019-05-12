@@ -49,7 +49,7 @@ describe("EventController", () => {
           .set({
             year: 2019,
             month: 4,
-            date: 10
+            date: 12
           })
           .format("YYYY-MM-DD"),
         startTime: moment()
@@ -71,7 +71,7 @@ describe("EventController", () => {
           .set({
             year: 2019,
             month: 4,
-            date: 10
+            date: 12
           })
           .format("YYYY-MM-DD"),
         startTime: moment()
@@ -93,7 +93,7 @@ describe("EventController", () => {
           .set({
             year: 2019,
             month: 4,
-            date: 10
+            date: 12
           })
           .format("YYYY-MM-DD"),
         startTime: moment()

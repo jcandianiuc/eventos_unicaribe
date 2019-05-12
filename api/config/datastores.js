@@ -29,9 +29,4 @@ module.exports.datastores = {
    * (For production configuration, see `config/env/production.js`.)          *
    *                                                                          *
    ***************************************************************************/
-
-  default: {
-    adapter: "sails-mongo",
-    url: process.env.MONGOBD_URL
-  }
 };
