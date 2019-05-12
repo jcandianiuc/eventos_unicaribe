@@ -45,7 +45,9 @@ module.exports = {
      ***************************************************************************/
     default: {
       adapter: "sails-mongo",
-      url: process.env.MONGOBD_URL
+      host: "localhost",
+      port: 27017,
+      database: process.env.LOCAL_MONGO
     }
   },
 
@@ -60,7 +62,7 @@ module.exports = {
      * https://sailsjs.com/docs/concepts/models-and-orm/model-settings#?migrate *
      *                                                                          *
      ***************************************************************************/
-    migrate: "safe"
+    migrate: "drop"
 
     /***************************************************************************
      *                                                                          *
@@ -242,7 +244,7 @@ module.exports = {
    *                                                                         *
    ***************************************************************************/
   log: {
-    level: "silly"
+    level: "warn"
   },
 
   http: {
