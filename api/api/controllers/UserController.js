@@ -44,10 +44,9 @@ const addEvent = async (req, res) => {
   try {
     const id = req.param("id");
     const event = req.param("event");
-    const updatedUser = await User.addToCollection(id, "Events").members([
-      event
-    ]);
+    await User.addToCollection(id, "Events").members([event]);
     await Event.addToCollection(event, "Attendants").members([id]);
+    const updatedUser = await User.findOne({ id }).populate("Events");
     res.success(updatedUser);
   } catch (err) {
     res.negotiate(err);
